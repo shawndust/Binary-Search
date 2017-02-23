@@ -1,0 +1,36 @@
+/***************************************************************
+binary_search
+Use: Searches a vector for a value in the binary fashion,
+dividing up the sorted list and cutting it in half each time 
+until a match is found. 
+Parameters: 1. inputVec: the vector to be searched.
+            2. x: the number to be searched for.
+	    3. comparisons: the number of times a match is sought. 
+Returns: true or false, depending on where the match is found/not.
+***************************************************************/
+bool binary_search(const vector<int>& inputVec, const int x, int& comparisons) {
+	comparisons = 0;	// Reset value each time function is called.
+	int arr_begin = 0;	// Array first element
+	int arr_end = inputVec.size()-1;	// Array last element
+	int search_mid;		// Calculated mid-point of vector
+
+	// Loop through the vector, slicing it in half each iteration.
+	// If the number is less than the midpoint, the midpoint becomes
+	// the last element, otherwise it becomes the first. 
+	while (arr_begin <= arr_end)
+	{
+		comparisons++;
+		search_mid = (arr_begin + arr_end) / 2;
+		if (inputVec[search_mid] == x)
+		{
+			return true;
+		}
+		else if (inputVec[search_mid] > x)
+
+			arr_end = search_mid -1;
+		else
+			arr_begin = search_mid + 1;
+	}
+	return false;
+
+}
