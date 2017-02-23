@@ -1,2 +1,2 @@
 # Binary-Search
-Binary search logic on vectors (C++)
+Binary search logic on lists (C++)
